@@ -1,0 +1,11 @@
+{% set typeMap = {
+    'error': 'danger',
+    'success': 'success'
+} %}
+
+{% for type, messages in app.flashes %}
+    {% for message in messages %}
+        {% set type = typeMap[type] ?? null %}
+        <div class="alert {{ type ? 'alert-' ~ type : '' }}">{{ message }}</div>
+    {% endfor %}
+{% endfor %}

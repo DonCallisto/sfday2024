@@ -1,0 +1,22 @@
+parameters:
+    app.user.mailer.sender: 'samuele.lilli@gmail.com'
+
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    app.user.value_resolver.user_resolver:
+        class: App\User\Infrastructure\Controller\Symfony\ValueResolver\UserResolver
+        tags:
+            - controller.argument_value_resolver:
+                name: user_id
+                priority: 111
+
+    App\User\Application\Service\UserSuspendedHandler:
+        arguments:
+            $sender: '%app.user.mailer.sender%'
+
+    App\User\Application\Service\UserSuspensionRevokedHandler:
+            arguments:
+                $sender: '%app.user.mailer.sender%'

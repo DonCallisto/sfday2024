@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="alert alert-danger" role="alert">
+            Your account has been suspended until {{ user.suspendedTill|date('Y-m-d H:i:s') }}.
+        </div>
+        <div class="tenor-gif-embed" data-postid="16392985" data-share-method="host" data-aspect-ratio="1.61616" data-width="100%">
+            <a href="https://tenor.com/view/no-no-no-not-today-nah-nope-no-way-gif-16392985">No No No Not Today GIF</a>from <a href="https://tenor.com/search/no+no+no-gifs">No No No GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+{% endblock %}

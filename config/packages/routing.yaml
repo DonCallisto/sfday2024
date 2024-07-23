@@ -1,0 +1,8 @@
+framework:
+    router:
+        default_uri: '%base_uri%'
+
+when@prod:
+    framework:
+        router:
+            strict_requirements: null

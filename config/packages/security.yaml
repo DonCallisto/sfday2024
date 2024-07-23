@@ -1,0 +1,25 @@
+security:
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+    providers:
+        symfony_user_provider:
+            id: App\User\Infrastructure\Authentication\Symfony\UserProvider\UserProvider
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            lazy: true
+            provider: symfony_user_provider
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                success_handler: App\User\Infrastructure\Authentication\Symfony\Handler\LoginSuccessHandler
+            logout:
+                path: /logout
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: [ROLE_USER]
+    access_control:
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: PUBLIC_ACCESS } #!! this should not be done. Done in order to keep the complexity low for this example !!
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

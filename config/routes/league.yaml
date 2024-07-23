@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../../src/League/Infrastructure/Controller/Symfony
+        namespace: App\League\Infrastructure\Controller\Symfony
+    type: attribute

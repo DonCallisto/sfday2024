@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../../src/User/Infrastructure/Controller/Symfony
+        namespace: App\User\Infrastructure\Controller\Symfony
+    type: attribute

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        {% if app.user %}
+            {% include 'menu.html.twig' %}
+        {% endif %}
+        {% include 'flashes.html.twig' %}
+        {% block body %}{% endblock %}
+    </body>
+</html>

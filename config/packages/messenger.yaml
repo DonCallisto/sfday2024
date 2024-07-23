@@ -1,0 +1,11 @@
+framework:
+    messenger:
+        # Uncomment this (and the failed transport below) to send failed messages to this transport for later handling.
+        # failure_transport: failed
+
+        transports:
+            sync: 'sync://'
+
+        routing:
+            # !! I've chosen sync in order to not build more containers. It's just fine for this example !!
+            '*': sync

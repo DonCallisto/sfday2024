@@ -1,0 +1,16 @@
+services:
+  sfday2024:
+    build: docker/
+    volumes:
+      - ./:/var/sfday2024
+    working_dir: /var/sfday2024
+    user: user
+    tty: true
+
+networks:
+  custom_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.2

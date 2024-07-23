@@ -1,0 +1,6 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    App\League\Domain\Service\Participant\Provider\ParticipantProviderInterface: '@App\League\Application\Service\Participant\Provider\ParticipantChainedProvider'

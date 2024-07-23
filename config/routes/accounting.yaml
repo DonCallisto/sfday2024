@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../../src/Accounting/Infrastructure/Controller/Symfony
+        namespace: App\Accounting\Infrastructure\Controller\Symfony
+    type: attribute
